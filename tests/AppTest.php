@@ -46,7 +46,7 @@ class AppTest extends TestCase
             [\WeWork\Api\Batch::class, 'batch'],
             [\WeWork\Api\CheckIn::class, 'checkIn'],
             [\WeWork\Api\Corp::class, 'corp'],
-            [\WeWork\Api\CRM::class, 'crm'],
+            [\WeWork\Api\Euser::class, 'euser'],
             [\WeWork\Api\Department::class, 'department'],
             [\WeWork\Api\Invoice::class, 'invoice'],
             [\WeWork\Api\Media::class, 'media'],

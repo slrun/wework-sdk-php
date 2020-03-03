@@ -3,11 +3,11 @@
 namespace WeWork\Tests\Api;
 
 use Mockery\MockInterface;
-use WeWork\Api\CRM;
+use WeWork\Api\Euser;
 use WeWork\Http\HttpClientInterface;
 use WeWork\Tests\TestCase;
 
-class CRMTest extends TestCase
+class EuserTest extends TestCase
 {
     /**
      * @var MockInterface
@@ -15,9 +15,9 @@ class CRMTest extends TestCase
     protected $httpClient;
 
     /**
-     * @var CRM
+     * @var euser
      */
-    protected $crm;
+    protected $euser;
 
     /**
      * @inheritdoc
@@ -28,7 +28,7 @@ class CRMTest extends TestCase
 
         $this->httpClient = \Mockery::mock(HttpClientInterface::class);
 
-        $this->crm = new CRM();
+        $this->euser = new Euser();
     }
 
     /**
@@ -38,11 +38,11 @@ class CRMTest extends TestCase
     {
         $this->httpClient->shouldReceive('get')
             ->once()
-            ->with('crm/get_external_contact', ['external_userid' => 'foo'])
+            ->with('externalcontact/get', ['external_userid' => 'foo'])
             ->andReturn(['errcode' => 0]);
 
-        $this->crm->setHttpClient($this->httpClient);
+        $this->euser->setHttpClient($this->httpClient);
 
-        $this->assertEquals(['errcode' => 0], $this->crm->getExternalContact('foo'));
+        $this->assertEquals(['errcode' => 0], $this->euser->get('foo'));
     }
 }

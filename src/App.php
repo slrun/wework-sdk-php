@@ -36,7 +36,7 @@ class App extends ContainerBuilder
         'batch'      => Api\Batch::class,
         'checkIn'    => Api\CheckIn::class,
         'corp'       => Api\Corp::class,
-        'crm'        => Api\CRM::class,
+        'euser'      => Api\Euser::class,
         'department' => Api\Department::class,
         'invoice'    => Api\Invoice::class,
         'media'      => Api\Media::class,
