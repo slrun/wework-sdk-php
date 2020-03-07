@@ -132,4 +132,15 @@ class User
     {
         return $this->httpClient->postJson('user/getuserdetail', ['user_ticket' => $ticket]);
     }
+
+    /**
+     * 获取手机号随机串
+     * @param  string $mobile [description]
+     * @param  string $state  [description]
+     * @return [type]         [description]
+     */
+    public function getMobileHashcode(string $mobile, string $state): array 
+    {
+        return $this->httpClient->postJson('user/get_mobile_hashcode', ['mobile' => $mobile, 'state' => $state]);
+    }
 }
