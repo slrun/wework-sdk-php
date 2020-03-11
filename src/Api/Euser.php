@@ -100,4 +100,34 @@ class Euser
     {
         return $this->httpClient->postJson('externalcontact/groupchat/statistic', $json);
     }
+
+    /**
+     * 获取客户群列表
+     * @param  int|integer $statusFilter [description]
+     * @param  array       $ownerFilter  [description]
+     * @param  int|integer $offset       [description]
+     * @param  int|integer $limit        [description]
+     * @return [type]                    [description]
+     */
+    public function getGroupchatList(int $statusFilter = 0, array $ownerFilter = [], int $offset = 0, int $limit = 100)
+    {
+        return $this->httpClient->postJson('externalcontact/groupchat/list', [
+            'status_filter' => $statusFilter,
+            'owner_filter' => $ownerFilter,
+            'offset' => $offset,
+            'limit' => $limit
+        ]);
+    }
+
+    /**
+     * 获取客户群详情
+     * @param  [type] $chatId [description]
+     * @return [type]         [description]
+     */
+    public function getGroupChat($chatId)
+    {
+        return $this->httpClient->postJson('externalcontact/groupchat/get', [
+            'chat_id' => $chatId
+        ]);
+    }
 }
