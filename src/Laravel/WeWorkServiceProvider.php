@@ -44,10 +44,6 @@ class WeWorkServiceProvider extends ServiceProvider
 
                 $config = array_merge($agent, $wework);
 
-                $config['log'] = LogBridge::class;
-
-                $config['cache'] = CacheBridge::class;
-
                 return new App($config);
             }
         );
