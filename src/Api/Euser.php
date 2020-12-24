@@ -92,13 +92,23 @@ class Euser
     }
 
     /**
-     * 获取客户群统计数据
+     * 获取客户群统计数据-按群主聚合
      * @param  array  $json [description]
      * @return [type]       [description]
      */
     public function getGroupchatStatistic(array $json): array 
     {
         return $this->httpClient->postJson('externalcontact/groupchat/statistic', $json);
+    }
+
+    /**
+     * 获取客户群统计数据-按自然日聚合
+     * @param  array  $json [description]
+     * @return [type]       [description]
+     */
+    public function getGroupchatStatisticByDay(array $json): array 
+    {
+        return $this->httpClient->postJson('externalcontact/groupchat/statistic_group_by_day', $json);
     }
 
     /**
